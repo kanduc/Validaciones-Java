@@ -39,4 +39,15 @@ public class validaciones {
         }
         return '0';
     }
+
+    public static boolean validaFecha(String p_sFecha, String p_sFormato) {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat(p_sFormato, Locale.getDefault());
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(p_sFecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
 }
